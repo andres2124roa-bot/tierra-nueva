@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tierra Nueva · Ciudad Bolívar, Bogotá</title>
+<meta name="description" content="Conoce el barrio Tierra Nueva de Ciudad Bolívar: ubicación, cómo llegar en TransMiCable, juegos para niños, productos del barrio y cómo ayudar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#2b2118;--brick:#c4553a;--sky:#2f80c7;--sun:#f6b93b;--leaf:#3f8f55;--cream:#fff8ec;--card:#fff}
+*{box-sizing:border-box;margin:0}html{scroll-behavior:smooth}
+body{font:17px/1.6 Nunito,sans-serif;color:var(--ink);background:var(--cream)}
+h1,h2,h3,.btn,nav a{font-family:Fredoka,sans-serif}
+h2{font-size:clamp(28px,4.5vw,42px);color:var(--brick);margin-bottom:8px}
+section{padding:80px 6vw;max-width:1200px;margin:auto}
+.lead{max-width:680px;margin-bottom:32px;font-size:18px}
+nav{position:fixed;top:0;left:0;right:0;z-index:9;display:flex;justify-content:space-between;align-items:center;padding:12px 5vw;background:#fff8ecee;backdrop-filter:blur(8px);box-shadow:0 2px 12px #0001}
+nav b{font:700 22px Fredoka;color:var(--brick)}nav div{display:flex;gap:18px;flex-wrap:wrap}
+nav a{text-decoration:none;color:var(--ink);font-weight:500;font-size:15px}nav a:hover{color:var(--sky)}
+.hero{min-height:100vh;display:grid;place-items:center;text-align:center;color:#fff;padding:110px 6vw 70px;border-radius:0 0 50% 50%/0 0 60px 60px;background:linear-gradient(#0008,#2b211899),url(img/vista-bogota.jpg) center/cover}
+.hero h1{font-size:clamp(44px,9vw,92px);line-height:1.05;text-shadow:0 4px 20px #0007}
+.hero h1 span{color:var(--sun)}.hero p{max-width:620px;margin:18px auto 30px;font-size:20px}
+.btn{display:inline-block;padding:14px 28px;border-radius:50px;border:0;font-size:18px;font-weight:600;color:#fff;background:var(--brick);text-decoration:none;cursor:pointer;box-shadow:0 5px 0 #8f3a26;transition:.15s}
+.btn:hover{transform:translateY(-2px)}.btn:active{transform:translateY(3px);box-shadow:0 2px 0 #8f3a26}
+.btn.sun{background:var(--sun);color:var(--ink);box-shadow:0 5px 0 #c58f12}.btn.sky{background:var(--sky);box-shadow:0 5px 0 #1d5a93}.btn.leaf{background:var(--leaf);box-shadow:0 5px 0 #2a6a3d}
+.row{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+.card{background:var(--card);border-radius:24px;padding:24px;box-shadow:0 8px 24px #0001;transition:.2s}
+.card:hover{transform:translateY(-4px)}.card .ic{font-size:44px}.card h3{font-size:22px;margin:6px 0}
+.gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.gal img,.gal video{width:100%;height:340px;object-fit:cover;border-radius:22px;box-shadow:0 8px 24px #0002;background:#000}
+.reveal{opacity:0;transform:translateY(30px);transition:.7s}.reveal.on{opacity:1;transform:none}
+/* ruta */
+.map{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:800px){.map{grid-template-columns:1fr}nav div{display:none}}
+.track{position:relative;margin:50px 10px 20px;height:6px;background:repeating-linear-gradient(90deg,var(--sky) 0 12px,transparent 12px 18px)}
+.cab{position:absolute;top:-38px;font-size:34px;transition:left .8s ease;transform:translateX(-50%)}
+.st{position:absolute;top:-9px;width:24px;height:24px;border-radius:50%;background:#fff;border:5px solid var(--sky);cursor:pointer;transform:translateX(-50%);padding:0}
+.st.on{background:var(--sun);border-color:var(--brick)}
+.stl{position:absolute;top:22px;font-size:12px;font-weight:800;transform:translateX(-50%);text-align:center;width:80px}
+iframe{width:100%;height:100%;min-height:360px;border:0;border-radius:24px;box-shadow:0 8px 24px #0002}
+.info{background:#fff;border-radius:20px;padding:18px;margin-top:70px;min-height:96px;border-left:8px solid var(--sun)}
+/* juegos */
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.tab{padding:10px 22px;border-radius:40px;border:3px solid var(--sky);background:#fff;font:600 17px Fredoka;cursor:pointer;color:var(--sky)}
+.tab.on{background:var(--sky);color:#fff}
+.play{background:linear-gradient(135deg,#fff,#e8f3ff);border-radius:32px;padding:30px;text-align:center;box-shadow:0 10px 30px #0002;min-height:420px}
+.vis{font-size:96px;min-height:130px;display:grid;place-items:center;font-family:Fredoka}
+.sw{width:120px;height:120px;border-radius:50%;border:5px solid var(--ink);display:block}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:520px;margin:18px auto}
+.opt{padding:18px;border-radius:20px;border:0;font:600 24px Fredoka;color:#fff;cursor:pointer;box-shadow:0 5px 0 #0003;transition:.15s}
+.opt:nth-child(1){background:#ff7675}.opt:nth-child(2){background:#0984e3}.opt:nth-child(3){background:#00b894}.opt:nth-child(4){background:#e17055}
+.opt:hover{transform:scale(1.04)}.opt.ok{background:#27ae60!important}.opt.bad{background:#7f8c8d!important}
+.fb{font:600 24px Fredoka;min-height:34px}
+/* mercado */
+.prod .ic{font-size:64px;text-align:center;background:#fff3d6;border-radius:18px;padding:10px;margin-bottom:10px}
+.tag{display:inline-block;font-size:12px;font-weight:800;background:var(--sun);border-radius:20px;padding:2px 10px}
+.price{font:600 22px Fredoka;color:var(--leaf)}
+/* apoya */
+.help{background:linear-gradient(135deg,var(--brick),#e0794f);color:#fff;border-radius:40px;text-align:center;padding:60px 6vw;max-width:1100px}
+.help h2{color:#fff}.help p{max-width:620px;margin:10px auto 26px}
+footer{text-align:center;padding:40px;font-size:15px}
+</style>
+</head>
+<body>
+<nav><b>🏘️ Tierra Nueva</b><div><a href="#barrio">El barrio</a><a href="#galeria">Galería</a><a href="#llegar">Cómo llegar</a><a href="#aprende">Aprende</a><a href="#mercado">Mercado</a><a href="#apoya">Ayuda</a></div></nav>
+
+<header class="hero"><div>
+<h1>Tierra <span>Nueva</span></h1>
+<p>Un barrio de Ciudad Bolívar, Bogotá, que crece con su gente. Conócelo, visítalo y ayúdanos a hacerlo crecer.</p>
+<div class="row"><a class="btn sun" href="#llegar">🚡 Cómo llegar</a><a class="btn" href="#apoya">💛 Quiero ayudar</a></div>
+</div></header>
+
+<section id="barrio" class="reveal">
+<h2>Un barrio con vista a toda Bogotá</h2>
+<p class="lead">Tierra Nueva está en las montañas de Ciudad Bolívar, en el sur de Bogotá. Aquí hay familias que trabajan cada día por su comunidad, y esta página es una ventana para que más personas la conozcan.</p>
+<div class="grid" id="sitios"></div>
+</section>
+
+<section id="galeria" class="reveal">
+<h2>Así se ve Tierra Nueva</h2>
+<p class="lead">Fotos y videos del barrio.</p>
+<div class="gal">
+<img src="img/vista-bogota.jpg" alt="Vista de Bogotá desde las montañas del barrio, con casas de ladrillo y techos de colores" loading="lazy">
+<img src="img/calle-barrio.jpg" alt="Calle del barrio con casas de ladrillo, postes de luz y cerros al fondo" loading="lazy">
+<video src="media/video1.mp4" poster="img/poster1.jpg" controls preload="none" playsinline></video>
+<video src="media/video2.mp4" poster="img/poster2.jpg" controls preload="none" playsinline></video>
+</div>
+</section>
+
+<section id="llegar" class="reveal">
+<h2>Cómo llegar en TransMiCable</h2>
+<p class="lead">El TransMiCable sube por Ciudad Bolívar con cuatro estaciones. Toca cada estación para ver el recorrido.</p>
+<div class="map">
+<div>
+<div class="track" id="track"><span class="cab" id="cab">🚡</span></div>
+<div class="info" id="info"></div>
+<div class="row" style="margin-top:22px;justify-content:flex-start">
+<a class="btn sky" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&origin=Portal+El+Tunal,+Bogot%C3%A1&destination=Tierra+Nueva,+Ciudad+Bol%C3%ADvar,+Bogot%C3%A1&travelmode=transit">Ruta desde El Tunal</a>
+<a class="btn leaf" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=Tierra+Nueva,+Ciudad+Bol%C3%ADvar,+Bogot%C3%A1&travelmode=transit">Desde mi ubicación</a>
+</div>
+</div>
+<iframe title="Mapa de Tierra Nueva, Ciudad Bolívar" loading="lazy" src="https://www.google.com/maps?q=Tierra+Nueva,+Ciudad+Bol%C3%ADvar,+Bogot%C3%A1&output=embed"></iframe>
+</div>
+</section>
+
+<section id="aprende" class="reveal">
+<h2>Aprende jugando 🎈</h2>
+<p class="lead">Juegos para los niños del barrio, por edades. ¡Cada partida tiene 8 preguntas!</p>
+<div class="tabs" id="ages"></div><div class="tabs" id="gms"></div>
+<div class="play" id="play"></div>
+</section>
+
+<section id="mercado" class="reveal">
+<h2>Mercado del barrio 🧵</h2>
+<p class="lead">Productos hechos por vecinos de Tierra Nueva. Escríbeles directo por WhatsApp.</p>
+<div class="grid" id="prods"></div>
+</section>
+
+<section id="apoya"><div class="help reveal">
+<h2>Ayúdanos a crecer 💛</h2>
+<p>Si eres persona o empresa y quieres donar ropa, útiles, alimentos u otras cosas, o apoyar los proyectos del barrio, comunícate con nuestra líder comunitaria.</p>
+<h3 style="font-size:28px">Patricia Aristizabal</h3>
+<p style="margin:0 auto 20px">Líder comunitaria de Tierra Nueva · 301 444 2654</p>
+<div class="row"><a class="btn sun" href="https://wa.me/573014442654?text=Hola%20Patricia%2C%20quiero%20apoyar%20al%20barrio%20Tierra%20Nueva">💬 WhatsApp</a><a class="btn sky" href="tel:+573014442654">📞 Llamar</a></div>
+</div></section>
+
+<footer>Hecho con cariño para el barrio Tierra Nueva · Ciudad Bolívar, Bogotá 🇨🇴</footer>
+
+<script>
+/* ====== EDITA AQUÍ ====== */
+const TEL="573014442654";
+const SITIOS=[
+ {i:"🏛️",t:"Museo del barrio",d:"Un espacio para conocer la historia y la cultura de la comunidad."},
+ {i:"🌄",t:"Miradores",d:"Desde las partes altas se ve Bogotá completa. Perfecto para fotos al atardecer."},
+ {i:"🚡",t:"TransMiCable",d:"La forma más rápida y bonita de subir a Ciudad Bolívar."},
+ {i:"🤝",t:"Su gente",d:"Vecinos que trabajan juntos y te reciben con los brazos abiertos."}];
+const ESTACIONES=[
+ {n:"Portal El Tunal",d:"Aquí empieza el viaje. Llega en TransMilenio hasta el Portal El Tunal y sube a las cabinas."},
+ {n:"Juan Pablo II",d:"Primera parada. Las cabinas suben por el cerro con vista a la ciudad."},
+ {n:"Manitas",d:"Segunda parada, ya en la montaña."},
+ {n:"Mirador del Paraíso",d:"Última estación. Continúa hasta Tierra Nueva. Escríbenos por WhatsApp y te guiamos en el último tramo."}];
+const PRODUCTOS=[ /* productos de EJEMPLO: cámbialos por los reales */
+ {i:"👕",n:"Ropa hecha en el barrio",p:"$ — ",v:"Vecina emprendedora"},
+ {i:"🧶",n:"Tejidos a mano",p:"$ — ",v:"Vecina emprendedora"},
+ {i:"🍞",n:"Comida casera",p:"$ — ",v:"Vecino emprendedor"}];
+/* ========================= */
+const $=s=>document.querySelector(s),R=a=>a[Math.random()*a.length|0],sh=a=>a.sort(()=>Math.random()-.5);
+$("#sitios").innerHTML=SITIOS.map(s=>`<div class="card"><div class="ic">${s.i}</div><h3>${s.t}</h3><p>${s.d}</p></div>`).join("");
+$("#prods").innerHTML=PRODUCTOS.map(p=>`<div class="card prod"><div class="ic">${p.i}</div><span class="tag">Ejemplo</span><h3>${p.n}</h3><p>${p.v}</p><p class="price">${p.p}</p><a class="btn leaf" style="font-size:15px;padding:10px 20px" href="https://wa.me/${TEL}?text=${encodeURIComponent("Hola, me interesa: "+p.n)}">Pedir por WhatsApp</a></div>`).join("")+
+`<div class="card" style="background:var(--sun)"><div class="ic">🛍️</div><h3>¿Vendes algo?</h3><p>Muestra tus productos aquí. Escríbenos y te sumamos al mercado.</p><a class="btn" style="font-size:15px;padding:10px 20px" href="https://wa.me/${TEL}?text=${encodeURIComponent("Hola, quiero vender mis productos en la página de Tierra Nueva")}">Quiero vender</a></div>`;
+/* ruta */
+const tr=$("#track");ESTACIONES.forEach((e,i)=>{const x=i/(ESTACIONES.length-1)*100;
+ tr.insertAdjacentHTML("beforeend",`<button class="st" style="left:${x}%" aria-label="${e.n}"></button><span class="stl" style="left:${x}%">${e.n}</span>`)});
+const sts=[...tr.querySelectorAll(".st")];
+function est(i){sts.forEach((s,j)=>s.classList.toggle("on",j==i));$("#cab").style.left=i/(ESTACIONES.length-1)*100+"%";$("#info").innerHTML=`<h3>${ESTACIONES[i].n}</h3><p>${ESTACIONES[i].d}</p>`}
+sts.forEach((s,i)=>s.onclick=()=>est(i));est(0);
+/* juegos */
+const COL=[["Rojo","Red","#e74c3c"],["Azul","Blue","#3498db"],["Verde","Green","#2ecc71"],["Amarillo","Yellow","#f1c40f"],["Naranja","Orange","#e67e22"],["Morado","Purple","#9b59b6"],["Rosado","Pink","#fd79a8"],["Café","Brown","#8d5524"],["Negro","Black","#2d3436"]];
+const ANI=[["Perro","Dog","🐶"],["Gato","Cat","🐱"],["Vaca","Cow","🐮"],["Cerdo","Pig","🐷"],["Conejo","Rabbit","🐰"],["León","Lion","🦁"],["Elefante","Elephant","🐘"],["Mono","Monkey","🐵"],["Pato","Duck","🦆"],["Pez","Fish","🐟"],["Rana","Frog","🐸"],["Caballo","Horse","🐴"]];
+const VOC=[["Abeja","🐝","A"],["Avión","✈️","A"],["Estrella","⭐","E"],["Elefante","🐘","E"],["Iglesia","⛪","I"],["Isla","🏝️","I"],["Oso","🐻","O"],["Ojo","👁️","O"],["Uvas","🍇","U"],["Uña","💅","U"]];
+const op=(c,p)=>{p=sh([...new Set(p)].filter(x=>x!=c)).slice(0,3);p.push(c);return sh(p)};
+const near=n=>Array.from({length:8},(_,i)=>String(Math.max(0,n-4)+i));
+const sw=c=>`<i class=sw style="background:${c}"></i>`;
+const GAMES={
+"4 a 6 años":[
+ {n:"🎨 Colores",g:()=>{const c=R(COL);return{q:"¿De qué color es?",v:sw(c[2]),o:op(c[0],COL.map(x=>x[0])),a:c[0]}}},
+ {n:"🦁 Animales",g:()=>{const a=R(ANI);return{q:"¿Qué animal es?",v:a[2],o:op(a[0],ANI.map(x=>x[0])),a:a[0]}}},
+ {n:"🔤 Vocales",g:()=>{const a=R(VOC);return{q:`¿Con qué vocal empieza ${a[0]}?`,v:a[1],o:op(a[2],[..."AEIOU"]),a:a[2]}}}],
+"6 a 8 años":[
+ {n:"🔢 Contar",g:()=>{const n=1+Math.random()*10|0,e=R(["🍎","⭐","🐟","🎈","🍓"]);return{q:"¿Cuántos hay?",v:`<span style="font-size:42px">${e.repeat(n)}</span>`,o:op(String(n),near(n)),a:String(n)}}},
+ {n:"➕ Sumas",g:()=>{const a=Math.random()*11|0,b=Math.random()*11|0;return{q:"¿Cuánto es?",v:`${a} + ${b}`,o:op(String(a+b),near(a+b)),a:String(a+b)}}},
+ {n:"➖ Restas",g:()=>{const a=1+Math.random()*15|0,b=Math.random()*(a+1)|0;return{q:"¿Cuánto es?",v:`${a} − ${b}`,o:op(String(a-b),near(a-b)),a:String(a-b)}}}],
+"English":[
+ {n:"🐶 Animals",g:()=>{const a=R(ANI);return{q:"How do you say it?",v:a[2],o:op(a[1],ANI.map(x=>x[1])),a:a[1]}}},
+ {n:"🌈 Colors",g:()=>{const c=R(COL);return{q:"What color is it?",v:sw(c[2]),o:op(c[1],COL.map(x=>x[1])),a:c[1]}}}]};
+let age=Object.keys(GAMES)[0],gm,round,score,lock;
+const ROUNDS=8,OKS=["¡Muy bien! 🎉","¡Excelente! 🌟","¡Genial! 👏","¡Súper! 🚀"];
+function tabs(){$("#ages").innerHTML=Object.keys(GAMES).map(a=>`<button class="tab ${a==age?"on":""}" data-a="${a}">${a}</button>`).join("");
+ $("#gms").innerHTML=GAMES[age].map((g,i)=>`<button class="tab ${gm==g?"on":""}" data-g="${i}">${g.n}</button>`).join("");
+ $("#ages").onclick=e=>{if(e.target.dataset.a){age=e.target.dataset.a;gm=null;tabs();intro()}};
+ $("#gms").onclick=e=>{if(e.target.dataset.g){gm=GAMES[age][e.target.dataset.g];round=score=0;tabs();next()}}}
+function intro(){$("#play").innerHTML=`<div class="vis">👆</div><h3 style="font-size:28px">Elige un juego para empezar</h3>`}
+function next(){if(round>=ROUNDS){$("#play").innerHTML=`<div class="vis">${score>=7?"🏆":"🌟"}</div><h3 style="font-size:32px">¡Ganaste ${score} de ${ROUNDS} estrellas!</h3><p style="margin:14px 0"><button class="btn sky" id="again">🔄 Otra vez</button></p>`;$("#again").onclick=()=>{round=score=0;next()};return}
+ round++;lock=false;const q=gm.g();
+ $("#play").innerHTML=`<p style="font-weight:800">Pregunta ${round}/${ROUNDS} · ⭐ ${score}</p><h3 style="font-size:30px">${q.q}</h3><div class="vis">${q.v}</div><div class="opts">${q.o.map(o=>`<button class="opt">${o}</button>`).join("")}</div><div class="fb" id="fb"></div>`;
+ $("#play").querySelectorAll(".opt").forEach(b=>b.onclick=()=>{if(lock)return;lock=true;const ok=b.textContent==q.a;
+  if(ok)score++;b.classList.add(ok?"ok":"bad");
+  $("#play").querySelectorAll(".opt").forEach(x=>{if(x.textContent==q.a)x.classList.add("ok")});
+  $("#fb").textContent=ok?R(OKS):"¡Casi! Era: "+q.a+" 💪";setTimeout(next,1300)})}
+tabs();intro();
+const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add("on")),{threshold:.12});
+document.querySelectorAll(".reveal").forEach(r=>io.observe(r));
+</script>
+</body>
+</html>
